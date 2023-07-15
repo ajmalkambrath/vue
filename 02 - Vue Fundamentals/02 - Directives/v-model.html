@@ -1,0 +1,33 @@
+<script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+  
+  <div id="app">
+
+    <input type="text" v-model="name">
+
+    <p>another way of implementing 2 way binding</p>
+
+    <input type="text" :value="name" @input="updateName($event)">
+  </div>
+
+  <script type="module">
+    import { createApp } from 'vue'
+  
+    createApp({
+      data() {
+        return {
+          name: 'hello vue'
+        }
+      },
+      methods: {
+        updateName(event) {
+          this.name = event.target.value
+        }
+      }
+    }).mount('#app')
+  </script>

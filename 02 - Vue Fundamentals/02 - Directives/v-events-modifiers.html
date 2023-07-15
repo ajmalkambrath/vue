@@ -1,0 +1,41 @@
+<script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+  
+  <div id="app">
+    <!-- Event modifiers -->
+
+    <!-- 
+
+      @input.prevent
+
+      v-model.number
+      v-model.string
+      v-model.lazy.trim
+
+     -->
+    <br>
+    <p>{{name}}</p>
+     <input type="text" :value="name" @input.prevent="updateName($event)">
+  </div>
+
+  <script type="module">
+    import { createApp } from 'vue'
+  
+    createApp({
+      data() {
+        return {
+          name: 'test name'
+        }
+      },
+      methods: {
+        updateName(event) {
+          this.name = event.target.value
+        }
+      }
+    }).mount('#app')
+  </script>

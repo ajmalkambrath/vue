@@ -1,0 +1,39 @@
+<script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+  
+  <div id="app">
+
+    <!-- Events -->
+    <!-- 
+      @input
+      @click
+      @keyup
+      @keydown
+     -->
+    <input type="text" v-model="count">
+    <button v-on:click="increment">Increment</button>
+    <button @click="count = 0">Reset</button>
+    <button @click="count--">Decrement</button>
+  </div>
+
+  <script type="module">
+    import { createApp } from 'vue'
+  
+    createApp({
+      data() {
+        return {
+          count: 0,
+        }
+      },
+      methods: {
+        increment() {
+          this.count++;
+        }
+      }
+    }).mount('#app')
+  </script>
